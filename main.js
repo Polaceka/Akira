@@ -5,42 +5,20 @@ function get_time(time_groupe, i, p){
 
 
 
-function loadJSON() {
-  var foo;
-  fetch('data.json').then(response => response.json()).then(data => foo = data);
-  console.log(foo);
+async function loadJSON() {
+  const res = await fetch('data.json');
+  return res.json();
 }
 
-window.onload = function() {
+window.onload = async function() {
 
     // variables declaration
     var i = 0;
     var p = "start";
-    var time_groupe = loadJSON();
+    var time_groupe = await loadJSON();
     
     console.log(time_groupe);
     
-    /*
-    var time_groupe = {
-      group_count: 1,
-      group: [s
-        {
-          journey_count: 2,
-          journey_times: [
-            {
-              start: "May 4, 2020 00:25:00",
-              end: "May 4, 2020 00:26:00"
-            },
-            {
-              start: "May 4, 2020 00:27:00",
-              end: "May 4, 2020 00:28:00"
-            }
-          ]
-        }
-      ]
-    };*/
-
-
     var countDownDate = get_time(time_groupe, i, p);
 
     // Update the count down every 1 second

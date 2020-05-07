@@ -1,16 +1,16 @@
 {
     "groupe_count": 1,
-    "groups": [
+    "group": [
       {
         "journeys_count": 2,
         "journey_times": [
           {
-            "start": "May 4, 2020 20:00:00",
-            "end": "May 4, 2020 21:00:00"
+            "start": "May 7, 2020 19:10:00",
+            "end": "May 7, 2020 19:12:00"
           },
           {
-            "start": "May 4, 2020 22:00:00",
-            "end": "May 4, 2020 23:00:00"
+            "start": "May 7, 2020 19:20:00",
+            "end": "May 7, 2020 19:30:00"
           }
         ]
       }
