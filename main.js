@@ -69,7 +69,7 @@ window.onload = async function() {
 
       if (time_groupe.group[c].journey_times.length == i[c]) {
           //clearInterval(x);
-          document.getElementById("race" + c ).innerHTML = "EXPIRED";
+          document.getElementById("race" + c ).innerHTML = "Race Over";
       }else{
           
           countDownDate[c] = get_time(time_groupe, i, p, c);
