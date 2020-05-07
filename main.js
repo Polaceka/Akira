@@ -1,64 +1,81 @@
-function get_time(time_groupe, i, p){
-    let result = new Date(time_groupe.group[0].journey_times[i][p]).getTime();
-    return result;
+// gets the next time
+function get_time(time_groupe, i, p, c){
+  let result = new Date(time_groupe.group[c].journey_times[i[c]][p[c]]).getTime();
+  return result;
 };
 
 
-
+// Loads json file
 async function loadJSON() {
-  const res = await fetch('data.json');
-  return res.json();
+const res = await fetch('data.json');
+return res.json();
 }
 
 window.onload = async function() {
 
-    // variables declaration
-    var i = 0;
-    var p = "start";
-    var time_groupe = await loadJSON();
+  // variables declaration
+  var time_groupe = await loadJSON();
+  var g = time_groupe.groupe_count;
+  var i = [];
+  var p = [];
+  var countDownDate = [];
+  var hours = [];
+  var minutes = [];
+  var seconds = [];
+  var distance = [] 
+  for (var c = 0; c < g; c++){
+    i[c] = 0;
+    p[c] = "start";
+    var para = document.createElement("P");
+    para.innerText = "00:00:00";
+    para.setAttribute("id", "race" + c);
+    para.setAttribute("class", "counter");
+    document.getElementById("rusty_racer").appendChild(para);
     
-    console.log(time_groupe);
-    
-    var countDownDate = get_time(time_groupe, i, p);
+    countDownDate[c] = get_time(time_groupe, i, p, c);
+  }
 
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-    
-      // Get today's date and time
-      var now = new Date().getTime();
-        
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-      //console.log(distance);
-        
-      // Time calculations for hours, minutes and seconds
-      var hours = Math.floor(distance / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+   
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+  
+    // Get today's date and time
+    var now = new Date().getTime();
       
-      // Output the result in an element with id="race"
-      if (distance > 0){
-      document.getElementById("race").innerHTML = hours + ":" + minutes + ":" + seconds;}
+    
+    // Find the distance between now and the count down date
+    for (var c = 0; c < g; c++){
+    
+    distance[c] = countDownDate[c] - now;
+ 
+    // Time calculations for hours, minutes and seconds
+    hours[c] = Math.floor(distance[c] / (1000 * 60 * 60));
+    minutes[c] = Math.floor((distance[c] % (1000 * 60 * 60)) / (1000 * 60));
+    seconds[c] = Math.floor((distance[c] % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="race"
+    if (distance[c] > 0){
+    document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c];}
 
-      // If the count down is over, write some text 
-      if (distance < 0) {
-        
-        if (p == "start"){
-          p = "end";
-        }else if (p == "end"){
-          i++;
-          p = "start";
-        }
-
-        if (time_groupe.group[0].journey_times.length == i) {
-            clearInterval(x);
-            document.getElementById("race").innerHTML = "EXPIRED";
-        }else{
-            
-            countDownDate = get_time(time_groupe, i, p);
-        }
+    // If the count down is over, write some text 
+    if (distance[c] < 0) {
+      
+      if (p[c] == "start"){
+        p[c] = "end";
+      }else if (p[0] == "end"){
+        i[c]++;
+        p[c] = "start";
       }
 
+      if (time_groupe.group[c].journey_times.length == i[c]) {
+          //clearInterval(x);
+          document.getElementById("race" + c ).innerHTML = "EXPIRED";
+      }else{
+          
+          countDownDate[c] = get_time(time_groupe, i, p, c);
+      }
+    }
+  }
 
-    }, 1000);
+  }, 1000);
 };
