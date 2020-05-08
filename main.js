@@ -29,9 +29,8 @@ window.onload = async function() {
     var para = document.createElement("P");
     para.innerText = "00:00:00";
     para.setAttribute("id", "race" + c);
-    para.setAttribute("class", "counter");
+    para.setAttribute("class", "col");
     document.getElementById("rusty_racer").appendChild(para);
-    
     countDownDate[c] = get_time(time_groupe, i, p, c);
   }
 
@@ -55,10 +54,17 @@ window.onload = async function() {
     
     // Output the result in an element with id="race"
     if (distance[c] > 0){
-    document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c];}
-
-    // If the count down is over, write some text 
-    if (distance[c] < 0) {
+      if (p[c] == "start"){
+        if (minutes[c] < 10 ){
+         document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>Start Engine";
+        }else{
+          document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c];
+        }
+      }else{
+        document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>RACE";
+        //document.getElementById("race" + c ).;
+      }
+    }else{
       
       if (p[c] == "start"){
         p[c] = "end";
