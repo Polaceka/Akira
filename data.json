@@ -5,12 +5,12 @@
         "journeys_count": 2,
         "journey_times": [
           {
-            "start": "May 8, 2020 22:16:00",
-            "end": "May 8, 2020 23:12:00"
+            "start": "May 9, 2020 00:35:00",
+            "end": "May 9, 2020 00:40:00"
           },
           {
-            "start": "May 8, 2020 23:20:00",
-            "end": "May 8, 2020 23:30:00"
+            "start": "May 9, 2020 23:20:00",
+            "end": "May 9, 2020 23:30:00"
           }
         ]
       },
@@ -18,8 +18,8 @@
         "journeys_count": 1,
         "journey_times": [
           {
-            "start": "May 8, 2020 14:45:00",
-            "end": "May 8, 2020 23:01:00"
+            "start": "May 9, 2020 00:40:00",
+            "end": "May 9, 2020 00:45:00"
           }
         ]
       }

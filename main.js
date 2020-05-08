@@ -22,15 +22,16 @@ window.onload = async function() {
   var hours = [];
   var minutes = [];
   var seconds = [];
-  var distance = [] 
+  var distance = [] ;
+  let starttext = "loading";
   for (var c = 0; c < g; c++){
     i[c] = 0;
     p[c] = "start";
-    var para = document.createElement("P");
-    para.innerText = "00:00:00";
+    var para = document.createElement("div");
     para.setAttribute("id", "race" + c);
-    para.setAttribute("class", "col");
+    para.setAttribute("class", "row col text-center");
     document.getElementById("rusty_racer").appendChild(para);
+    document.getElementById("race" + c).innerText = '<p class="mx-auto">' + starttext + "</p>";
     countDownDate[c] = get_time(time_groupe, i, p, c);
   }
 
@@ -56,26 +57,30 @@ window.onload = async function() {
     if (distance[c] > 0){
       if (p[c] == "start"){
         if (minutes[c] < 10 ){
-         document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>Start Engine";
+         document.getElementById("race" + c ).innerHTML = "<p class='my-auto text-center w-100'>" + hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>Start Engine</p>";
+         document.getElementById("race" + c ).setAttribute("class", "row col text-center bg-warning text-dark align-items-center");
         }else{
-          document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c];
+          document.getElementById("race" + c ).innerHTML = "<p class='my-auto text-center w-100'>" + hours[c] + ":" + minutes[c] + ":" + seconds[c] + "</p>";
+          document.getElementById("race" + c ).setAttribute("class", "row col text-center align-items-center");
         }
       }else{
-        document.getElementById("race" + c ).innerHTML = hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>RACE";
-        //document.getElementById("race" + c ).;
+        document.getElementById("race" + c ).innerHTML = "<p class='my-auto text-center w-100'>" + hours[c] + ":" + minutes[c] + ":" + seconds[c] + "<br>RACE</p>";
+        document.getElementById("race" + c ).setAttribute("class", "row col text-center bg-success text-white align-items-center");
       }
     }else{
       
       if (p[c] == "start"){
         p[c] = "end";
-      }else if (p[0] == "end"){
+      }else if (p[c] == "end"){
         i[c]++;
         p[c] = "start";
       }
 
       if (time_groupe.group[c].journey_times.length == i[c]) {
           //clearInterval(x);
-          document.getElementById("race" + c ).innerHTML = "Race Over";
+          document.getElementById("race" + c ).innerHTML = "<p class='mx-auto'>Race Over</p>";
+          document.getElementById("race" + c ).setAttribute("class", "row col text-center bg-danger text-white align-items-center");
+
       }else{
           
           countDownDate[c] = get_time(time_groupe, i, p, c);
