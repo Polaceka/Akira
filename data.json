@@ -1,16 +1,16 @@
 {
-    "groupe_count": 2,
+    "groupe_count": 3,
     "group": [
       {
         "journeys_count": 2,
         "journey_times": [
           {
-            "start": "May 7, 2020 23:00:00",
-            "end": "May 7, 2020 23:12:00"
+            "start": "May 9, 2020 00:35:00",
+            "end": "May 9, 2020 00:40:00"
           },
           {
-            "start": "May 7, 2020 23:20:00",
-            "end": "May 7, 2020 23:30:00"
+            "start": "May 9, 2020 23:20:00",
+            "end": "May 9, 2020 23:30:00"
           }
         ]
       },
@@ -18,8 +18,17 @@
         "journeys_count": 1,
         "journey_times": [
           {
-            "start": "May 7, 2020 22:45:00",
-            "end": "May 7, 2020 23:01:00"
+            "start": "May 9, 2020 00:40:00",
+            "end": "May 9, 2020 00:45:00"
+          }
+        ]
+      },
+      {
+        "journeys_count": 1,
+        "journey_times": [
+          {
+            "start": "May 9, 2020 00:40:00",
+            "end": "May 9, 2020 00:45:00"
           }
         ]
       }
