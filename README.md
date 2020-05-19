@@ -9,8 +9,7 @@ The Node.js runtime is required to execute the server.
 ## Getting Started
 
 After installing the Node.js, you can execute the application.
-
-Jump into the directori with the server.js file and execute the following command:
+Jump into the directory where the server.js file is located and execute the following command:
 ```
 node server.js
 ```
@@ -44,7 +43,7 @@ The data.json file needs to be edited.
 ## Built With
 
 * [Node.js](https://nodejs.org/) - Runtime for JavaScript
-* [Express](https://expressjs.com/) - Used node.js web framework
+* [Express](https://expressjs.com/) - Node.js web framework
 * [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/) - CSS framework
 
 ## Authors
