@@ -1,0 +1,22 @@
+{
+  "name": "akira",
+  "version": "1.0.0",
+  "description": "Pittimer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polaceka/Akira.git"
+  },
+  "author": "Ryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Polaceka/Akira/issues"
+  },
+  "homepage": "https://github.com/Polaceka/Akira#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
