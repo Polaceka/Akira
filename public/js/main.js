@@ -7,7 +7,7 @@ function get_time(time_groupe, i, p, c){
 
 // Loads json file
 async function loadJSON() {
-const res = await fetch('data.json');
+const res = await fetch('/data.json');
 return res.json();
 }
 
@@ -28,6 +28,7 @@ window.onload = async function() {
 
   // variables declaration
   var time_groupe = await loadJSON();
+  console.log(time_groupe)
   var g = time_groupe.groupe_count;
   var div_height = "h-100";
   var i = [];
@@ -87,13 +88,13 @@ window.onload = async function() {
     // Output the result in an element with id="race"
     if (distance[c] > 0){
       if (p[c] == "start"){
-        if (minutes[c] < 10 ){
+        if (minutes[c] < 10 && hours[c] == 0){
           setCounter(seconds[c], minutes[c], hours[c], c, div_height,"<br>Start Engine", " bg-warning text-dark");
         }else{
           setCounter(seconds[c], minutes[c], hours[c], c, div_height,"", "");
         }
       }else{
-        setCounter(seconds[c], minutes[c], hours[c], c, div_height,"<br>RACE", "bg-success text-white");
+        setCounter(seconds[c], minutes[c], hours[c], c, div_height,"<br>RACE", " bg-success text-white");
       }
     }else{
       
