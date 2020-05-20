@@ -20,7 +20,7 @@ function linebreaker() {
 
 //set counter numbers
 function setCounter(second, minute, hour, c, div_height, status, status_class){
-    document.getElementById("race" + c ).innerHTML = "<p class='my-auto text-center w-100'>" + hour + ":" + minute + ":" + second + status +"</p>";
+    document.getElementById("race" + c ).innerHTML = "<p class='my-auto text-center w-100'>" + hour.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":" + minute.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":" + second.toLocaleString(undefined,{minimumIntegerDigits: 2}) + status +"</p>";
     document.getElementById("race" + c ).setAttribute("class", "row col text-center align-items-center p-0 m-0 " + div_height + status_class);
 }
 
